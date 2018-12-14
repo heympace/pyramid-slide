@@ -1,18 +1,18 @@
 
-
 var heightElem = document.getElementById("height");
 var formElem = document.getElementById("draw-form");
 
 // set a handler function for the form's submission event
-formElem.onsubmit = function(event) {
+formElem.oninput = function(event) {
 
     // QUIZ
     // what happens if we don't do this?
-    event.preventDefault();
+    // this prevents a button from submitting the form on auto
+    // event.preventDefault();
 
     // QUIZ
     // what happens if we don't do this?
-    clearError();
+    // clearError();
 
     // figure out the height the user typed
     heightStr = heightElem.value;
@@ -64,9 +64,18 @@ function displayError(message) {
 function clearError(message) {
     // TODO 3
     // implement this function.
+    // guessing here, check this!
+    document.getElementById("draw-form").innerHTML = "";
 }
 
-
+/*
+ * updateTextInput
+ *
+ * return the range value for the slider
+ */
+function updateTextInput(val) {
+    document.getElementById('textInput').value=val; 
+  }
 
 /**
  * drawPyramid

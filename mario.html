@@ -28,18 +28,21 @@
     <p><strong>Draw a pyramid</strong></p>
     <p>I say:</p>
     <br>
-
+    <form id="draw-form">
+        <input type="range" name="rangeInput" min="0" max="20" id="height" onchange="updateTextInput(this.value);">
+        <input type="text" id="textInput" value="">
+    </form>
+    <!--
     <form id="draw-form">
         <label>
             How high?
             <input type="text" id="height"/>
             <label class="error-message">
-                <!-- If there was a user error, we will put a message in here -->
             </label>
         </label>
         <br><br>
         <input type="submit" value="Draw a pyramid"/>
-    </form>
+    </form>-->
 
     <br><br>
 
