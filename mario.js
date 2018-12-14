@@ -2,6 +2,8 @@
 var heightElem = document.getElementById("height");
 var formElem = document.getElementById("draw-form");
 
+var formElemSymbol = document.getElementById("choose-symbol");
+var symbolElem = document.getElementById("symbol");
 
 
 // set a handler function for the form's submission event
@@ -22,7 +24,6 @@ formElem.oninput = function(event) {
     // TODO 1
     // if they didn't type anything at all, give a different error message,
     // something like "Please provide a height"
-
 
     // convert the string to an int
     height = parseInt(heightStr);
@@ -47,6 +48,12 @@ formElem.oninput = function(event) {
     updateTextInput(height)
 }
 
+formElemSymbol.onchange = function(event) {
+
+    // figure out the symbol the user selected
+    symbol = symbolElem.value
+    console.log(symbolElem.value);
+}
 
 /**
  * displayError
