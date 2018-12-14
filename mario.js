@@ -2,6 +2,8 @@
 var heightElem = document.getElementById("height");
 var formElem = document.getElementById("draw-form");
 
+
+
 // set a handler function for the form's submission event
 formElem.oninput = function(event) {
 
@@ -42,6 +44,7 @@ formElem.oninput = function(event) {
 
     // draw pyramid with the specified height
     drawPyramid(height);
+    updateTextInput(height)
 }
 
 
@@ -74,7 +77,17 @@ function clearError(message) {
  * return the range value for the slider
  */
 function updateTextInput(val) {
-    document.getElementById('textInput').value=val; 
+    // sample starter:
+    // document.getElementById('textInput').value=val; 
+
+    // should clear the height each time
+    document.getElementById("rangeValue").innerHTML = "";
+
+    // return range value
+    document.getElementById('textInput').value=val;
+    rangeVal = document.createElement("p");
+    rangeVal.innerHTML = val;
+    document.getElementById("rangeValue").appendChild(rangeVal);
   }
 
 /**
@@ -86,6 +99,7 @@ function drawPyramid(height) {
 
     // first, clear the old content
     document.getElementById("pyramid").innerHTML = "";
+    
 
     // for each row....
     for (var row = 0; row < height; row++) {
@@ -108,5 +122,7 @@ function drawPyramid(height) {
         rowElem = document.createElement("p");
         rowElem.innerHTML = rowStr;
         document.getElementById("pyramid").appendChild(rowElem);
+
+
     }
 }

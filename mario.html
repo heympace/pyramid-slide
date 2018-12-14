@@ -28,10 +28,13 @@
     <p><strong>Draw a pyramid</strong></p>
     <p>I say:</p>
     <br>
+    
     <form id="draw-form">
         <input type="range" name="rangeInput" min="0" max="20" id="height" onchange="updateTextInput(this.value);">
-        <input type="text" id="textInput" value="">
+        <span style="display: none;"><input type="text" id="textInput" value=""></span>
     </form>
+    <div id="rangeValue"></div>
+    
     <!--
     <form id="draw-form">
         <label>
