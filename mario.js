@@ -3,20 +3,14 @@ var heightElem = document.getElementById("height");
 var formElem = document.getElementById("draw-form");
 
 var formElemSymbol = document.getElementById("choose-symbol");
-var symbolElem = document.getElementById("symbol");
+var symbol = document.getElementById("symbol").value;
+
+var heightStr = heightElem.value;
+var height = parseInt(heightStr);
 
 
 // set a handler function for the form's submission event
 formElem.oninput = function(event) {
-
-    // QUIZ
-    // what happens if we don't do this?
-    // this prevents a button from submitting the form on auto
-    // event.preventDefault();
-
-    // QUIZ
-    // what happens if we don't do this?
-    // clearError();
 
     // figure out the height the user typed
     heightStr = heightElem.value;
@@ -44,15 +38,16 @@ formElem.oninput = function(event) {
     }
 
     // draw pyramid with the specified height
-    drawPyramid(height);
+    drawPyramid(height, symbol);
     updateTextInput(height)
 }
 
 formElemSymbol.onchange = function(event) {
 
-    // figure out the symbol the user selected
-    symbol = symbolElem.value
-    console.log(symbolElem.value);
+    symbol = document.getElementById("symbol").value;
+
+    // draw pyramid with the specified symbol + height
+    drawPyramid(height, symbol);
 }
 
 /**
@@ -102,7 +97,7 @@ function updateTextInput(val) {
  *
  * Renders, in the HTML document, a Mario pyramid of the specified height
  */
-function drawPyramid(height) {
+function drawPyramid(height, symbol) {
 
     // first, clear the old content
     document.getElementById("pyramid").innerHTML = "";
@@ -122,7 +117,7 @@ function drawPyramid(height) {
             rowStr += spaceChar;
         }
         for (var i = 0; i < numBricks; i++) {
-            rowStr += "#";
+            rowStr += symbol;
         }
 
         // make a <p> element for this row, and insert it into the #pyramid container
