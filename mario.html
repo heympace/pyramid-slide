@@ -1,48 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        #pyramid {
-            line-height: 0;
-            font-size: 30px;
-        }
-
-        body {
-            font-family: "Courier New", monospace;
-            text-align: center;
-        }
-
-        .invalid-field {
-            border: 1px solid red;
-        }
-
-        .error-message {
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <section id="header">
     <h1>Pyramid Slide</h1>
+    </section>
 
-    <br>
-
-    <div>Brick symbol: 
-        <form id="choose-symbol">
-        <select id="symbol">
-            <option value="#">#</option>
-            <option value="@">@</option>
-            <option value="X">X</option>
-            <option value="$">$</option>
-          </select>
-          </form>
-    </div>
-    
-    <form id="draw-form">
-        How high?
-        <input type="range" name="rangeInput" min="0" max="20" id="height" onchange="updateTextInput(this.value);">
-        <span style="display: none;"><input type="text" id="textInput" value=""></span>
-    </form>
-    <div id="rangeValue"></div>
+    <section id="main-content">
+        <div class="form-wrapper-parent">
+            <div class="form-wrapper-child"> 
+                <form id="choose-symbol">Brick symbol:
+                <select id="symbol">
+                    <option value="#">#</option>
+                    <option value="@">@</option>
+                    <option value="X">X</option>
+                    <option value="$">$</option>
+                </select>
+                </form>
+            </div>
+            <div class="form-wrapper-child"> 
+                <form id="draw-form">
+                    How high?
+                    <input type="range" name="rangeInput" min="0" max="20" value="8" id="height" onchange="updateTextInput(this.value);">
+                    <span style="display: none;"><input type="text" id="textInput" value=""></span>
+                </form>
+                <div id="rangeValue"></div>
+            </div>
+        </div><!-- end form wrapper parent-->
+        <div id="pyramid"></div>
+    </section>
     
     <!--
     <form id="draw-form">
@@ -55,10 +43,6 @@
         <br><br>
         <input type="submit" value="Draw a pyramid"/>
     </form>-->
-
-    <br><br>
-
-    <div id="pyramid"></div>
 
     <script src="mario.js"></script>
 </body>
